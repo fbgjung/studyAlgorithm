@@ -1,16 +1,23 @@
 def solution(stones, k):
-    answer = 0
+    left = 1
+    right =  200000000
     
-    while True:
-        answer += 1
-        stones = [stone - 1 for stone in stones]
+    while left <= right:
+        temp=stones.copy()
+        mid = (left + right) // 2
         count = 0
-        for stone in stones:
-            if stone <= 0:
-                count +=1
-                if count == k:
-                    return answer                   
+        for i in temp:
+            if i <= mid:
+                count += 1
             else:
                 count = 0
+            if count >= k:
+                break
+            
+        if count >= k:
+            right = mid-1
+        else:
+            left = mid + 1
+    return left
 
 print(solution([2, 4, 5, 3, 2, 1, 4, 2, 5, 1],3))
