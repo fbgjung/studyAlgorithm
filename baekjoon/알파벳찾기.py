@@ -7,3 +7,9 @@ for target in targets:
         print(S.index(target), end=' ')
     else:
         print(-1, end=' ')
+
+# other solution
+S = input()
+
+for x in 'abcdefghijklmnopqrstuvwxyz':
+    print(S.find(x), end = ' ')
