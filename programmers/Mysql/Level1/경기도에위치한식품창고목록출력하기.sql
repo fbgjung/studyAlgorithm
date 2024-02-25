@@ -1,0 +1,8 @@
+SELECT WAREHOUSE_ID, WAREHOUSE_NAME, ADDRESS, 
+COALESCE (FREEZER_YN, 'N') AS FREEZER_YN
+FROM FOOD_WAREHOUSE
+WHERE ADDRESS LIKE "경기도%"
+ORDER BY WAREHOUSE_ID
+
+-- FREEZER_YN 값이 Null인 경우 N으로 출력
+-- if(freezer_yn is null, 'N', freezer_yn) as freezer_yn
