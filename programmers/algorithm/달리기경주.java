@@ -1,12 +1,12 @@
 import java.util.*;
 
-class Solution {
+class 달리기경주 {
     public String[] solution(String[] players, String[] callings) {
         
         int num = players.length;
                 
         Map<String, Integer> ranking = new HashMap<>();
-        for (int i = 0; i<num; i++) {
+        for (int i = 0; i < num; i++) {
             ranking.put(players[i], i);
         }
         
