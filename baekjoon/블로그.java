@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 // fail: 시간초과
-public class 블로그 {
+class 블로그fail {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -42,5 +42,47 @@ public class 블로그 {
             System.out.println(count);
         }
 
+    }
+}
+
+// 슬라이딩윈도우 알고리즘 활용
+public class 블로그 {
+    public static void main(String[] args) {        
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int K = scanner.nextInt();
+        int[] arr = new int[N];
+
+        int count = 0;
+        List<Integer> list = new ArrayList<>();
+        
+        for (int i = 0; i < N; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        int term = 0;
+        int result = 0;
+
+        for (int i = 0; i < K; i++) {
+            term += arr[i];
+        }
+
+        result = term;
+        list.add(result);
+        for (int i = K; i < N; i++) {
+            term += arr[i] - arr[i-K];
+            list.add(term);
+            result = Math.max(result, term);
+            
+        }
+        if (result == 0) {
+            System.out.println("SAD");
+            return;
+        } else {
+            count = Collections.frequency(list, result);
+            System.out.println(result);
+            System.out.println(count);
+        }
+        // System.out.println(list);
     }
 }
