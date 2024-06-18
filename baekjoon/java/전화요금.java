@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.java;
 import java.util.*;
 public class 전화요금 {
     public static void main(String[] args){
