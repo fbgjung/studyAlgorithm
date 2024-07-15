@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 import java.util.Queue;
 
 public class 헌내기는친구가필요해 {
-    
+
     static int n,m,result;
     static char[][] campus;
     static int[] dx = {-1,1,0,0};
@@ -38,13 +38,12 @@ public class 헌내기는친구가필요해 {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
 
-                if (0 <= nx && nx < n && 0 <= ny && ny < m) {
-                    if (campus[nx][ny] == 'O') queue.offer(new int[]{nx,ny});
+                if (0 <= nx && nx < n && 0 <= ny && ny < m && campus[nx][ny] != 'X') {
                     if (campus[nx][ny] == 'P') {
-                        campus[nx][ny] = 'O';
-                        queue.offer(new int[]{nx,ny});
                         result += 1;
                     }
+                    campus[nx][ny] = 'X';
+                    queue.offer(new int[]{nx,ny});
                 }
             }
         }
